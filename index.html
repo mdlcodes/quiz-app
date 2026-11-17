@@ -8,8 +8,57 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <!-- Background Decorative Circles -->
+    <div class="circle one"></div>
+    <div class="circle two"></div>
+    <div class="circle three"></div>
+    <div class="circle four"></div>
+
+    <!-- SCREEN 1: HERO / START SCREEN -->
+    <div id="hero" class="screen active">
+        <div class="hero-title">
+            <img src="./images/logo-mascot.png" alt="Logo Mascot" class="hero-img">
+            <h1>Ang <span class="title-yellow">QLET</span></h1>
+        </div>
+
+        <div class="quiz-info-card">
+            <p>Test your Web Development fundamentals! You have <strong>1 minute per question</strong>. Unanswered timeouts deduct <strong>1 point</strong>.</p>
+            <div class="quiz-badges">
+                <span id="total-questions-badge">5 Questions</span>
+                <span>60s / Question</span>
+                <span>+1 Correct / -1 Timeout</span>
+            </div>
+        </div>
+
+        <button id="start-btn" class="btn-primary">Take Quiz</button>
+    </div>
+
+   section id="quiz-screen" class="screen">
+        <header class="quiz-header">
+            <div class="header-title-group">
+                <img src="./images/logo-mascot.png" alt="Logo Mascot" class="mini-mascot">
+                <h2 id="question-number">QUESTION 1</h2>
+            </div>
+            <div class="status-pills">
+                <span class="pill" id="score-display">Score: 0</span>
+                <span class="pill timer-pill" id="timer-display">01:00</span>
+            </div>
+        </header>
+
+        <!-- White Question Card -->
+        <div class="question-card">
+            <p id="question-text">Loading question...</p>
+            <p id="feedback-text" class="feedback-text"></p>
+        </div>
+
+        <!-- 2x2 Dark Blue Answer Buttons -->
+        <div id="options-grid" class="options-grid"></div>
+
+        <button id="next-btn" class="btn-primary" disabled>Next</button>
+    </section>
 </body>
 </html>

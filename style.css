@@ -229,3 +229,12 @@ button{
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(0.9rem, 3vw, 1.35rem);
 }
+.option-btn{
+    font-family: "Palanquin Dark", sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    background-color: var(--dark-blue);
+    color: #fff;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+}

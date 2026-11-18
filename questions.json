@@ -1,0 +1,32 @@
+[
+  {
+    "question": "Which HTML element is used to define the largest heading?",
+    "options": ["<heading>", "<h6>", "<h1>", "<head>"],
+    "answer": "<h1>"
+  },
+  {
+    "question": "Which CSS property controls the space inside an element's border?",
+    "options": ["margin", "padding", "gap", "spacing"],
+    "answer": "padding"
+  },
+  {
+    "question": "What does JSON stand for?",
+    "options": [
+      "JavaScript Object Notation",
+      "Java Standard Output Network",
+      "JavaScript Online Node",
+      "Joined Syntax Object Naming"
+    ],
+    "answer": "JavaScript Object Notation"
+  },
+  {
+    "question": "Which JavaScript method converts a JSON string into a JavaScript object?",
+    "options": ["JSON.stringify()", "JSON.object()", "JSON.parse()", "JSON.convert()"],
+    "answer": "JSON.parse()"
+  },
+  {
+    "question": "Which CSS layout module is best suited for arranging items in a 2D grid of rows and columns?",
+    "options": ["Flexbox", "CSS Grid", "Float", "Inline-Block"],
+    "answer": "CSS Grid"
+  }
+]

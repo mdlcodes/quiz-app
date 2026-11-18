@@ -10,23 +10,22 @@ const questionTextEl = document.getElementById("question-text");
 const feedbackTextEl = document.getElementById("feedback-text");
 const optionsGridEl = document.getElementById("options-grid");
 
-let questions = [
-  {
-    question: "Which HTML element is used to define the largest heading?",
-    options: ["<heading>", "<h6>", "<h1>", "<head>"],
-    answer: "<h1>"
-  },
-  {
-    question: "Which CSS property controls the space inside an element's border?",
-    options: ["margin", "padding", "gap", "spacing"],
-    answer: "padding"
-  }];
-  
+let questions = [];
 let currentIndex = 0;
 let score = 0;
 let timerInterval = null;
 let timeLeft = 60;
 
+async function loadQuestions(){
+    try{
+        const response = await fetch("questions.json");
+        if(!response.ok) throw new Error("Failed to load questions.json");
+        questions = await response.json();
+    }catch(error){
+        console.error(error);
+        questionTextEl.textContent = "Error loading questions"
+    }
+}
 function showScreen(screenToShow){
     [heroScreen, quizScreen].forEach((screen) => {
         screen.classList.remove("active");
@@ -36,6 +35,10 @@ function showScreen(screenToShow){
 }
 
 function startQuiz(){
+
+    if(questions.length === 0){
+        alert("Questions are still loading")
+    }
     currentIndex = 0;
     showScreen(quizScreen);
     renderQuestions();
@@ -59,3 +62,4 @@ function renderQuestions(){
 }
 
 startBtn.addEventListener("click", startQuiz);
+loadQuestions();

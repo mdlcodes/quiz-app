@@ -239,4 +239,19 @@ button{
     border: none;
     border-radius: 18px;
     cursor: pointer;
+
+    &:hover:not(:disabled){
+        transform: translateY(-1px);
+        background-color: #0b14c7;
+    }
+
+    &.correct{
+        background-color: var(--correct-green);
+        color: #111;
+    }
+    &.wrong{
+        background-color: var(--wrong-red);
+        color: #fff;
+    }
+    
 }

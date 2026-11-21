@@ -61,12 +61,29 @@ function renderQuestions(){
         const button = document.createElement("button");
         button.className = "option-btn";
         button.textContent = optionText;
+        button.addEventListener("click", () => 
+            answerChecker(button, optionText)
+        )
         optionsGridEl.appendChild(button);
     });
-    answerChecker();
 }
 
-function answerChecker(){
+function answerChecker(selectedBtn, selectedOpt){
+    const currentQ = questions[currentIndex];
+    const isCorrect = selectedOpt == currentQ.answer;
+    const allButtons = optionsGridEl.querySelectorAll(".option-btn");
+
+    allButtons.forEach((btn) => {
+        btn.disabled = true;
+        if(btn.textContent === currentQ.answer){
+            btn.classList.add("correct");
+        }else if(btn === selectedBtn && !isCorrect){
+            btn.classList.add("wrong");
+        }else{
+            btn.classList.add("dimmed");
+        }
+    })
+
     nextBtn.disabled = false;
 }
 

@@ -38,6 +38,7 @@ function startQuiz(){
 
     if(questions.length === 0){
         alert("Questions are still loading")
+        return;
     }
     currentIndex = 0;
     showScreen(quizScreen);
@@ -47,10 +48,13 @@ function startQuiz(){
 function renderQuestions(){
     const currentQ = questions[currentIndex];
 
+    nextBtn.disabled = true;
+    nextBtn.textContent = currentIndex === questions.length - 1? "Finish":"Next";
     //reset ui 
     optionsGridEl.innerHTML = "";
      
     questionNumberEl.textContent = `QUESTION ${currentIndex + 1}`;
+
     questionTextEl.textContent = currentQ.question;
     
     currentQ.options.forEach((optionText) => {
@@ -59,7 +63,23 @@ function renderQuestions(){
         button.textContent = optionText;
         optionsGridEl.appendChild(button);
     });
+    answerChecker();
+}
+
+function answerChecker(){
+    nextBtn.disabled = false;
+}
+
+function nextQuestion(){
+    currentIndex++;
+    if(currentIndex < questions.length){
+        renderQuestions();
+    }else{
+        alert("Quiz Finished!");
+    }
 }
 
 startBtn.addEventListener("click", startQuiz);
+nextBtn.addEventListener("click", nextQuestion);
 loadQuestions();
+

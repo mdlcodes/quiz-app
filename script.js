@@ -52,6 +52,8 @@ function renderQuestions(){
     nextBtn.textContent = currentIndex === questions.length - 1? "Finish":"Next";
     //reset ui 
     optionsGridEl.innerHTML = "";
+    feedbackTextEl.className = "feedback-text";
+    feedbackTextEl.textContent = "";
      
     questionNumberEl.textContent = `QUESTION ${currentIndex + 1}`;
 
@@ -84,6 +86,13 @@ function answerChecker(selectedBtn, selectedOpt){
         }
     })
 
+    if(isCorrect){
+        feedbackTextEl.textContent = "Correct! Great Job!";
+        feedbackTextEl.classList.add("show", "correct");
+    }else{
+        feedbackTextEl.textContent = `Incorrect! the correct answer is ${currentQ.answer}`;
+        feedbackTextEl.classList.add("show", "wrong");
+    }
     nextBtn.disabled = false;
 }
 

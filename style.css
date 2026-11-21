@@ -247,11 +247,13 @@ button{
 
     &.correct{
         background-color: var(--correct-green);
-        color: #111;
+        color: #ffffff;
     }
     &.wrong{
         background-color: var(--wrong-red);
         color: #fff;
     }
-    
+    &.dimmed{
+        opacity: 0.4;
+    }
 }

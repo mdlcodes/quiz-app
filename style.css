@@ -259,7 +259,11 @@ button{
 }
 
 .feedback-text{
+    margin-top: 1rem;
     display: none;
+    font-size: clamp(0.95rem, 1.4vw, 1.4rem);
+    padding: 0.4rem 1.5rem;
+    border-radius: 15px;
 
     &.show{
         display: inline-block;
@@ -269,7 +273,7 @@ button{
         color: green;
     }
     &.wrong{
-        background-color: #ffe4e4;
-        color: red;
+        background-color: #ffe3e3;
+        color: rgb(179, 40, 40);
     }
 }

@@ -55,11 +55,11 @@ button{
     z-index: 1;
 }
 .btn-primary{
-    width: fit-content;
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem);
     min-width: clamp(200px, 22vw, 320px);
     background-color: var(--yellow-color);
     color: var(--dark-blue);
-    padding: 10px 106px;
+    padding: 0.55em 2.2em;
     border-radius: 10px;
     border: none;
     cursor: pointer;
@@ -145,6 +145,8 @@ button{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: clamp(1.25rem, 3vw, 10rem);
+    gap: clamp(1.25rem, 3vh, 2rem);
     width: 100%;
 
     &.active{

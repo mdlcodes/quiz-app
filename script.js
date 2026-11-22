@@ -40,11 +40,16 @@ function startQuiz(){
         alert("Questions are still loading")
         return;
     }
+    score = 0;
+    updateScoreUI();
     currentIndex = 0;
     showScreen(quizScreen);
     renderQuestions();
 };
 
+function updateScoreUI(){
+    scoreDisplayEl.textContent = `Score: ${score}`;
+}
 function renderQuestions(){
     const currentQ = questions[currentIndex];
 
@@ -87,6 +92,8 @@ function answerChecker(selectedBtn, selectedOpt){
     })
 
     if(isCorrect){
+        score++;
+        updateScoreUI();
         feedbackTextEl.textContent = "Correct! Great Job!";
         feedbackTextEl.classList.add("show", "correct");
     }else{

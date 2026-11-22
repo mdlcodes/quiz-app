@@ -50,6 +50,35 @@ function startQuiz(){
 function updateScoreUI(){
     scoreDisplayEl.textContent = `Score: ${score}`;
 }
+
+function formatTime(seconds){
+    const mins = String(Math.floor(seconds/60)).padStart(2, "0");
+    const secs = String(seconds % 60).padStart(2, "0");
+    return `${mins}:${secs}`
+}
+function startTime(){
+    clearInterval(timerInterval);
+    timeLeft = 60;
+    timerDisplayEl.textContent = formatTime(timeLeft);
+    timerDisplayEl.classList.remove("warning");
+
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        timerDisplayEl.textContent = formatTime(timeLeft);
+
+        if(timeLeft <= 0){
+            clearInterval(timerInterval);
+            handleTimeout();
+        }
+    }, 1000);
+}
+
+function handleTimeout(){
+    score--;
+    updateScoreUI();
+    nextQuestion();
+}
+
 function renderQuestions(){
     const currentQ = questions[currentIndex];
 
@@ -73,9 +102,12 @@ function renderQuestions(){
         )
         optionsGridEl.appendChild(button);
     });
+
+    startTime();
 }
 
 function answerChecker(selectedBtn, selectedOpt){
+    clearInterval(timerInterval);
     const currentQ = questions[currentIndex];
     const isCorrect = selectedOpt == currentQ.answer;
     const allButtons = optionsGridEl.querySelectorAll(".option-btn");
@@ -104,6 +136,7 @@ function answerChecker(selectedBtn, selectedOpt){
 }
 
 function nextQuestion(){
+    clearInterval(timerInterval);
     currentIndex++;
     if(currentIndex < questions.length){
         renderQuestions();

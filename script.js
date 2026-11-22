@@ -11,6 +11,8 @@ const questionTextEl = document.getElementById("question-text");
 const feedbackTextEl = document.getElementById("feedback-text");
 const optionsGridEl = document.getElementById("options-grid");
 
+const finalScoreEl = document.getElementById("final-score");
+const scoreMessageEl = document.getElementById("score-message");
 let questions = [];
 let currentIndex = 0;
 let score = 0;
@@ -153,6 +155,17 @@ function nextQuestion(){
 function showResult(){
     clearInterval(timerInterval);
     showScreen(resultScreen);
+
+    finalScoreEl.textContent = `${score} / ${questions.length}`
+
+    if(score === questions.length){
+        scoreMessageEl.textContent = "Congrats on getting a perfect score!"
+    } else if(score >= Math.ceil((questions.length / 2))) {
+        scoreMessageEl.textContent = "Nice one! You got more than half!";
+    }else{
+        scoreMessageEl.textContent = "Keep practicing!"
+    }
+
 }
 startBtn.addEventListener("click", startQuiz);
 nextBtn.addEventListener("click", nextQuestion);

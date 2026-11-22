@@ -202,6 +202,10 @@ button{
     box-shadow: 8px 7px 0 rgba(0,0,0,1);
 }
 
+.timer-pill.warning{
+    border-color: var(--wrong-red);
+    color: #fecaca;
+}
 .question-card{
     background-color: #fff;
     color: var(--dark-blue);

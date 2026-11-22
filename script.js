@@ -67,10 +67,14 @@ function startTime(){
         timeLeft--;
         timerDisplayEl.textContent = formatTime(timeLeft);
 
+        if(timeLeft <= 10 ){
+            timerDisplayEl.classList.add("warning");
+        }
         if(timeLeft <= 0){
             clearInterval(timerInterval);
             handleTimeout();
         }
+
     }, 1000);
 }
 

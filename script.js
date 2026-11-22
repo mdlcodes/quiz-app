@@ -1,5 +1,6 @@
 const heroScreen = document.getElementById("hero");
 const quizScreen = document.getElementById("quiz-screen");
+const resultScreen = document.getElementById("result-screen");
 const startBtn = document.getElementById("start-btn");
 const nextBtn = document.getElementById("next-btn");
 
@@ -141,10 +142,14 @@ function nextQuestion(){
     if(currentIndex < questions.length){
         renderQuestions();
     }else{
-        alert("Quiz Finished!");
+        showResult();
     }
 }
 
+function showResult(){
+    clearInterval(timerInterval);
+    showScreen(resultScreen);
+}
 startBtn.addEventListener("click", startQuiz);
 nextBtn.addEventListener("click", nextQuestion);
 loadQuestions();

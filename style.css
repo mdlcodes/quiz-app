@@ -277,3 +277,30 @@ button{
         color: rgb(179, 40, 40);
     }
 }
+
+/*==========RESULTS SCREEN===========*/
+.result-summary-card{
+    background-color: #ffffff;
+    color: var(--dark-blue);
+    width: 100%;
+    max-width: 720px;
+    border-radius: 20px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    box-shadow: 6px 8px 0 rgba(0, 0, 0, 1);
+
+    .final-score-label{
+        font-size: 1rem
+    }
+
+    .final-score-value{
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        color: var(--light-blue);
+        text-shadow: 3px 3px 0 var(--yellow-color);
+    }
+
+    .score-message{
+        font-size: 1.1rem;
+        margin-top: 0.25rem;
+    }
+}

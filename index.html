@@ -53,12 +53,29 @@
 
         <div class="question-card">
             <p id="question-text">Loading question...</p>
-            <p id="feedback-text" class="feedback=text"></p>
+            <p id="feedback-text" class="feedback-text"></p>
         </div>
 
         <div id="options-grid" class="options-grid"></div>
 
         <button id="next-btn" class="btn-primary" disabled></button>
+    </section>
+
+    <section id="result-screen" class="screen">
+        <div class="header-title-group">
+            <img src="./images/logo-mascot.png" alt="Logo Mascot" class="mini-mascot">
+            <h2>QUIZ COMPLETE!</h2>
+        </div>
+
+        <div class="result-summary-card">
+            <p class="final-score-label">FINAL SCORE</p>
+            <div id="final-score" class="final-score-value">
+                0 / 5
+            </div>
+            <p id="score-message" class="score-message"></p>
+        </div>
+
+        <button id="restart-btn" class="btn-primary">Play Again </button>
     </section>
 
     <script src="script.js" defer></script>

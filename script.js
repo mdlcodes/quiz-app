@@ -74,7 +74,7 @@ function startTime(){
 }
 
 function handleTimeout(){
-    score--;
+    score = Math.max(0, score -1);
     updateScoreUI();
     nextQuestion();
 }
